@@ -27,12 +27,14 @@ Park.prototype.findDinosaursBySpecies = function(species) {
 }
 
 Park.prototype.removeAllDinosaursOfSpecies = function(species) {
-  for (i = 0; i < this.dinosaurs.length; i++) {
-    let currentDinosaur = dinosaurs[i];
-    if (currentDinosaur.species === species) {
-      this.dinosaurs.splice(i, 1);
+  let newDinoArray = [];
+
+  for (dinosaur of dinosaurs) {
+    if (dinosaur.species != species) {
+      newDinoArray.push(dinosaur);
     }
   }
+  this.dinosaurs = newDinoArray;
 }
 
 Park.prototype.findMostPopularDino = function() {
